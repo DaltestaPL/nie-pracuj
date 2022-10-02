@@ -1,23 +1,18 @@
-package pl.niepracuj.model.entity;
+package pl.niepracuj.model.dto;
 
 import lombok.*;
 import pl.niepracuj.model.enums.TechnologyEnum;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "technologies")
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Technology {
+public class TechnologyDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
     private TechnologyEnum name;
 }
