@@ -6,6 +6,7 @@ import pl.niepracuj.model.dto.AdvertisementCreateDto;
 import pl.niepracuj.model.dto.AdvertisementDto;
 import pl.niepracuj.service.advertisement.AdvertisementService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class AdvertisementController {
     }
 
     @PostMapping("/create")
-    public AdvertisementDto createAdvertisement(@RequestBody AdvertisementCreateDto advertisementCreateDto) {
+    public AdvertisementDto createAdvertisement(@RequestBody @Valid AdvertisementCreateDto advertisementCreateDto) {
         return advertisementService.createAdvertisement(advertisementCreateDto);
     }
 }
