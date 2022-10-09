@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import pl.niepracuj.model.dto.advertisement.AdvertisementSearchCriteriaDto;
@@ -58,6 +59,7 @@ public class AdvertisementControllerIT {
     @ParameterizedTest
     @ArgumentsSource(CriteriaProvider.class)
     @Sql("/sql/controller/advertisement.sql")
+    @WithMockUser(username = "admin", password = "admin", roles = {"ADMIN"})
     public void whenGetAdvertisementsByCriteriaParemetrized_thenOkResponse(TechnologyEnum technology,
                                                                            String city,
                                                                            SeniorityEnum seniority,
