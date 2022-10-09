@@ -38,6 +38,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     private final SkillRepository skillRepository;
 
     private final LevelRepository levelRepository;
+
     private final AdvertisementMapper advertisementMapper;
 
     private final SkillMapper skillMapper;
@@ -45,6 +46,12 @@ public class AdvertisementServiceImpl implements AdvertisementService {
     @Override
     public List<AdvertisementDto> getAllAdvertisements() {
         return advertisementRepository.findAll().stream().map(advertisementMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<AdvertisementDto> getAllAdvertisementsForCompany(Long companyId) {
+        return advertisementRepository.findByCompany_Id(companyId).stream().map(advertisementMapper::toDto)
                 .collect(Collectors.toList());
     }
 
