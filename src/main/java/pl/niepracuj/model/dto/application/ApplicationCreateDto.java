@@ -1,19 +1,14 @@
-package pl.niepracuj.model.dto;
+package pl.niepracuj.model.dto.application;
 
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
-import pl.niepracuj.model.entity.Advertisement;
-
-import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplicationDto {
-
-    private Long id;
+public class ApplicationCreateDto {
 
     private String name;
 
@@ -23,6 +18,7 @@ public class ApplicationDto {
 
     private String introduction;
 
-    private String path;
+    private MultipartFile cv;
 
+    private Long advertisementId;
 }
