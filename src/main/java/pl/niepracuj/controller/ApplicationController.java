@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import static nonapi.io.github.classgraph.utils.FastPathResolver.resolve;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/application")
 @RequiredArgsConstructor

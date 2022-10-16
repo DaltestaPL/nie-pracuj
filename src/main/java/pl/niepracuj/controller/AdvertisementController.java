@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/adv")
 @RequiredArgsConstructor
@@ -25,7 +26,7 @@ public class AdvertisementController {
     @GetMapping("/all")
     public List<AdvertisementDto> getAdvertisements() throws IOException, InterruptedException {
         var response = advertisementService.getAllAdvertisements();
-//        logService.sendLog(LogDto.getLogDto("Pobrano wszystkie ogłoszenia"));
+        logService.sendLog(LogDto.getLogDto("Pobrano wszystkie ogłoszenia"));
         return response;
     }
 
