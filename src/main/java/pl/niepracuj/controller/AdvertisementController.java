@@ -14,6 +14,9 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Kontroler ogłoszeń
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/adv")
@@ -23,6 +26,12 @@ public class AdvertisementController {
     private final AdvertisementService advertisementService;
     private final LogService logService;
 
+    /**
+     * Endpoint do pobierania wszystkich ogłoszeń
+     * @return Lista ogłoszeń
+     * @throws IOException Wyjątek związany z wysyłaniem logów
+     * @throws InterruptedException Wyjątek związany z wysyłaniem logów
+     */
     @GetMapping("/all")
     public List<AdvertisementDto> getAdvertisements() throws IOException, InterruptedException {
         var response = advertisementService.getAllAdvertisements();
